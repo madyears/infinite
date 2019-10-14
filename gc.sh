@@ -1,5 +1,7 @@
 #!/bin/sh
 
+if [ -z $(ls -a | grep ^.git$) ]; then echo Not a git repository!; exit 1; fi
+
 f () {
 	basename $1 | rev | cut -d. -f2- | rev | sed 's/ /./g'
 }
